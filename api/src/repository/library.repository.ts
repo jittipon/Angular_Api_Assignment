@@ -52,6 +52,7 @@ export class LibraryRepository {
     }
 
     getAll(): Book[] {
+        // console.log("CALLLLLLLLLLLLLL");
         return this.library;
     }
 

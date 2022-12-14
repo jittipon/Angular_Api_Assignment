@@ -1,9 +1,27 @@
 <h1 class="header">API ASSIGNMENT</h1>
 
-<p-button (click)="testPost()">POST</p-button>
+<p-button (click)="testPost()">NEW BOOK</p-button>
 
-<ul>
+<!-- <ul>
     <li *ngFor="let book of books">
         {{book.id}} {{book.name}} {{book.detail}}
     </li>
-</ul>
+</ul> -->
+
+
+<p-table [value]="books">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>detail</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.id}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.detail}}</td>
+        </tr>
+    </ng-template>
+</p-table>

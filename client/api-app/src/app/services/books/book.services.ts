@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { catchError, Observable, of } from "rxjs";
 import { Books } from "./books";
 
 interface Book {
@@ -21,20 +21,18 @@ export class BookService {
     }
     
 
-    addBook(book: Book) {
-        this.httpClient.post('/api/add-book', {
+    // addBook(book: Book): Observable<Book> {
+    addBook(book: Book): Observable<Books> {
+        return this.httpClient.post<Books>('/api/add-book', {
             name: book.name,
             detail: book.detail
-        }).subscribe((res) => {
-            console.log(res);
         })
     }
 
-    deleteBook(book: Books) {
-        const index = this.books.indexOf(book);
-        if (index > -1) {
-            this.books.splice(index, 1);
-        }
+    deleteBook(id: string): Observable<Books> {
+        return this.httpClient.post<Books>('/api/delete', {
+            id: id,
+        })
     }
 
 

@@ -41,44 +41,4 @@ export const mockLibrary: Book[] =
         "id": "10",
         "name": "Reckless Moment, The",
         "detail": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum."
-    }, {
-        "id": "11",
-        "name": "Blackout",
-        "detail": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla."
-    }, {
-        "id": "12",
-        "name": "Nights of Cabiria (Notti di Cabiria, Le)",
-        "detail": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo."
-    }, {
-        "id": "13",
-        "name": "Real McCoy, The",
-        "detail": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus."
-    }, {
-        "id": "14",
-        "name": "Less of Sugar (Cheeni Kum)",
-        "detail": "Vivamus tortor."
-    }, {
-        "id": "15",
-        "name": "Lost World: Jurassic Park, The",
-        "detail": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est."
-    }, {
-        "id": "16",
-        "name": "Journey, The",
-        "detail": "In blandit ultrices enim."
-    }, {
-        "id": "17",
-        "name": "Plácido",
-        "detail": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy."
-    }, {
-        "id": "18",
-        "name": "Julie Johnson",
-        "detail": "Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis."
-    }, {
-        "id": "19",
-        "name": "Luv",
-        "detail": "Mauris lacinia sapien quis libero."
-    }, {
-        "id": "20",
-        "name": "Autism: The Musical",
-        "detail": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat."
     }]

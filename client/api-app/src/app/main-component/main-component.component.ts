@@ -15,7 +15,6 @@ export class MainComponentComponent implements OnInit {
   bookDialog: boolean = false;
   submitted: boolean = false;
   book!: Books;
-
   books: Books[] = [];
 
   constructor(
@@ -28,7 +27,6 @@ export class MainComponentComponent implements OnInit {
   ngOnInit(): void {
     this.getBook();
   }
-
 
   getBook(): void {
     this.bookService.getBookList().subscribe((data: Books[]) => {
@@ -43,54 +41,52 @@ export class MainComponentComponent implements OnInit {
       detail: detail
     }).pipe(catchError((err: any): Observable<any> => {
       console.log(err);
-      this.showError();
+      this.showError('add fail');
       return of();
     })).subscribe((data: Books) => {
       this.books.push(data);
       console.log(data);
-      this.showSuccess();
+      this.showSuccess('add success');
       return data;
     })
   }
 
-  deleteBook(id:string): void {
+  deleteBook(id: string): void {
     console.log(id);
     this.bookService.deleteBook(id)
-    .pipe(catchError((err: any): Observable<any> => {
-      console.log(err);
-      this.showError();
-      return of();
-    })).subscribe((data: Books) => {
-      this.books = this.books.filter((book) => book.id !== id);
-      console.log(data);
-      this.showSuccess();
-      return data;
-    })
+      .pipe(catchError((err: any): Observable<any> => {
+        console.log(err);
+        this.showError('delete fail');
+        return of();
+      })).subscribe((data: Books) => {
+        this.books = this.books.filter((book) => book.id !== id);
+        console.log(data);
+        this.showSuccess('delete success');
+        return data;
+      })
   }
 
-  saveBook() {
+  saveBook(): void {
     this.submitted = true;
-    console.log("save");
-
     this.addBook(this.book.name, this.book.detail);
-
     this.bookDialog = false;
     this.book = {
       id: "",
       name: "",
       detail: ""
     };
+
   }
 
-  showError() {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'fail to adding book' });
+  showError(text: string): void {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: text });
   }
 
-  showSuccess() {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Adding book success' });
+  showSuccess(text: string): void {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: text });
   }
 
-  openNew() {
+  openNew(): void {
     this.book = {
       id: "",
       name: "",
@@ -100,7 +96,7 @@ export class MainComponentComponent implements OnInit {
     this.bookDialog = true;
   }
 
-  hideDialog() {
+  hideDialog(): void {
     this.bookDialog = false;
     this.submitted = false;
   }

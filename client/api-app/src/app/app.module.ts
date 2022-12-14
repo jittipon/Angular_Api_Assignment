@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponentComponent } from './main-component/main-component.component';
 import { BookService } from './services/books/book.services';
-
-
+import { ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,10 @@ import { BookService } from './services/books/book.services';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    TableModule,
+    
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

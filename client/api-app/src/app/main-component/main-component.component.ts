@@ -19,10 +19,18 @@ export class MainComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bookService.getUserList().subscribe((data: Books[]) => {
+    this.bookService.getBookList().subscribe((data: Books[]) => {
       this.books = data;
       console.log(this.books);
     })
+  }
+
+
+  testPost() {
+    this.bookService.addBook({
+      name: "testrewrewwr",
+      detail: "test22222222222"
+    });
   }
 
 }

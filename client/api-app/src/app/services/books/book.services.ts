@@ -3,6 +3,11 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Books } from "./books";
 
+interface Book {
+    name: string;
+    detail: string;
+}
+
 @Injectable()
 export class BookService {
 
@@ -11,12 +16,18 @@ export class BookService {
     constructor(private httpClient: HttpClient) {
     }
 
-    getUserList(): Observable<Books[]> {
+    getBookList(): Observable<Books[]> {
         return this.httpClient.get<Books[]>('/api/get-all')
     }
+    
 
-    addBook(book: Books) {
-        this.books.push(book);
+    addBook(book: Book) {
+        this.httpClient.post('/api/add-book', {
+            name: book.name,
+            detail: book.detail
+        }).subscribe((res) => {
+            console.log(res);
+        })
     }
 
     deleteBook(book: Books) {

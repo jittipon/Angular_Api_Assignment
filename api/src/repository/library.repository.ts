@@ -44,6 +44,8 @@ export class LibraryRepository {
             detail: payload.detail
         }
         this.library.push(book);
+        console.log(payload.name);
+        console.log(payload.detail);
         return book;
     }
 

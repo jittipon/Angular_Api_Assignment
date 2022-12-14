@@ -19,7 +19,7 @@ export class BookService {
     getBookList(): Observable<Books[]> {
         return this.httpClient.get<Books[]>('/api/get-all')
     }
-    
+
 
     // addBook(book: Book): Observable<Book> {
     addBook(book: Book): Observable<Books> {
@@ -32,6 +32,14 @@ export class BookService {
     deleteBook(id: string): Observable<Books> {
         return this.httpClient.post<Books>('/api/delete', {
             id: id,
+        })
+    }
+
+    editBook(id: string, name: string, detail: string): Observable<Books> {
+        return this.httpClient.post<Books>('/api/update', {
+            id: id,
+            name: name,
+            detail: detail
         })
     }
 

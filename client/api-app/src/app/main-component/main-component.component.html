@@ -24,7 +24,7 @@
             <td>{{book.id}}</td>
             <td>{{book.name}}</td>
             <td>{{book.detail}}</td>
-            <td><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-outlined"></button></td>
+            <td><button (click)="openEdit(book)" pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-outlined"></button></td>
             <td><button (click)="deleteBook(book.id)" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger"></button></td>
         </tr>
     </ng-template>
@@ -45,7 +45,7 @@
     </ng-template>
     
     <ng-template pTemplate="footer">
-        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveBook()"></button>
+        <button pButton pRipple label="Cancel"  icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button *ngIf="book.name && book.detail" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveBook()"></button>
     </ng-template>
 </p-dialog>

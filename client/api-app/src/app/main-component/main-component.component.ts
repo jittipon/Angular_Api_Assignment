@@ -66,16 +66,43 @@ export class MainComponentComponent implements OnInit {
       })
   }
 
+  editBook(id: string, name: string, detail: string): void {
+    console.table([id, name, detail]);
+    this.bookService.editBook(id, name, detail)
+      .pipe(catchError((err: any): Observable<any> => {
+        console.log(err);
+        this.showError('edit fail');
+        return of();
+      })).subscribe((data: Books) => {
+        this.books[this.findIndexById(id)] = data;
+        console.log(data);
+        this.showSuccess('edit success');
+        return data;
+      });
+  }
+
   saveBook(): void {
-    this.submitted = true;
-    this.addBook(this.book.name, this.book.detail);
+    if (this.book.id) {
+      console.log('EDIT');
+      this.submitted = true;
+      this.editBook(this.book.id, this.book.name, this.book.detail);
+      console.log(this.book.id);
+    }
+    else {
+      this.submitted = true;
+      this.addBook(this.book.name, this.book.detail);
+    }
     this.bookDialog = false;
     this.book = {
       id: "",
       name: "",
       detail: ""
     };
+  }
 
+  openEdit(book: Books): void {
+    this.book = { ...book };
+    this.bookDialog = true;
   }
 
   showError(text: string): void {
@@ -101,6 +128,17 @@ export class MainComponentComponent implements OnInit {
     this.submitted = false;
   }
 
+  findIndexById(id: string): number {
+    let index = -1;
+    console.log(id);
+    for (let i = 0; i < this.books.length; i++) {
+      if (this.books[i].id == id) {
+        index = i;
+        console.log("MATCH" + i);
+        break;
+      }
+    }
+    return index;
+  }
 
 }
-
